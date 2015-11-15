@@ -1,0 +1,130 @@
+body {
+	color: #333;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.75rem;
+	font-weight: 400;
+}
+
+h1 {
+	font-size: 2rem;
+	font-weight: 200;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	color: #09c;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+
+a, p, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+hr {
+	border: 0;
+	width: 960px;
+	border-bottom: 1px solid #e3e3e3;
+}
+
+/* Forms */
+
+input {
+	padding: 0.5rem;
+	width: 15rem;
+}
+
+button {
+	padding: 0.5rem;
+}
+
+/* Container */
+
+.container {
+	display: flex;
+	width: 960px;
+	margin: 0 auto;
+	flex-direction: column;
+	padding: 2rem;
+}
+
+/* Navigation Bar */
+
+nav {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	background: #333;
+}
+
+nav ul {
+	display: flex;
+	align-items: center;
+	width: 960px;
+	margin-top: 0.6rem;
+	margin-bottom: 0.6rem;
+}
+
+nav li {
+	flex: 1;
+}
+
+nav p {
+	color: #fff;
+}
+
+nav a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+/* Header */
+
+header {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin: 0;
+	padding: 3rem 0;
+	background: #f7f7f7;
+}
+
+header h1 {
+	flex-direction: column;
+}
+
+/* Main */
+
+main {
+	display: flex;
+	width: 100%;
+	margin: 0;
+	padding: 3rem 0;
+}
+
+/* Footer */
+
+footer {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	margin: 0;
+	padding: 3rem 0;
+	background: #f2f2f2;
+}
+
+.centered {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
