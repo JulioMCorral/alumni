@@ -18,7 +18,7 @@
 <?php else : ?>
 
 <header>
-	<h1>Hello Guest!</h1>
+	<h1>Hello, Visitor!</h1>
 </header>
 
 <main>

@@ -35,6 +35,12 @@ function queryDatabase($query, $conn) {
 	return $result;
 }
 
+function createTable($name, $query, $conn)
+{
+	queryDatabase("CREATE TABLE IF NOT EXISTS $name($query)", $conn);
+	echo "Table '$name' created or already exists.<br>";
+}
+
 function get($conn) {
 	return queryDatabase("SELECT * FROM alumni", $conn);
 }
