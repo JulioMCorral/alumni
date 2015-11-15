@@ -6,7 +6,7 @@
 		<li><a href="#">Store</a></li>
 		<li><a href="alumni.php">List of Alumni</a></li>
 		<li><a href="profile.php?username=<?php echo $_SESSION['user']; ?>">Profile</a></li>
-		<li><p>Signed in as <strong><?php echo $_SESSION['user']; ?></strong> - <a href="logout.php">Log Out</a></p></li>
+		<li><p><a href="logout.php">Log Out</a> (<?php echo $_SESSION['user']; ?>)</p></li>
 	</ul>
 </nav>
 
