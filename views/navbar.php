@@ -16,6 +16,7 @@
 	<ul>
 		<li><a href="index.php">Home</a></li>
 		<li><a href="#">Store</a></li>
+		<li><a href="alumni.php">List of Alumni</a></li>
 		<li><a href="register.php">Register</a></li>
 		<li><a href="authenticate.php">Sign In</a></li>
 	</ul>
