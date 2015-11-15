@@ -13,6 +13,6 @@ createTable('post',
             'id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             author INT(10) NOT NULL,
             message VARCHAR(140) NOT NULL,
-            private TINYINT(1) NOT NULL',
+            visible TINYINT(1) NOT NULL',
             $connection);
 ?>
