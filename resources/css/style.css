@@ -34,6 +34,7 @@ ul {
 hr {
 	border: 0;
 	width: 960px;
+	margin: 0 auto;
 	border-bottom: 1px solid #e3e3e3;
 }
 
@@ -41,6 +42,7 @@ hr {
 
 input {
 	padding: 0.5rem;
+	margin: 0.5rem 0;
 	width: 15rem;
 }
 
