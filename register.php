@@ -12,7 +12,7 @@ if (isset($_POST['authForm'])) {
 	if ($username == "" || $fullName == "" || $password == "" || !ctype_alnum($username)) {
 		header("location: register.php");
 	} else {
-		$user = queryDatabase("SELECT username FROM alumni WHERE username='$username'", $connection);
+		$user = queryDatabase("SELECT username FROM user WHERE username='$username'", $connection);
 
 		if ($user->num_rows) {
 			header("location: register.php");
