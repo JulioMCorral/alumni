@@ -2,4 +2,10 @@
 
 require 'config/initialize.php';
 
-view('main/index');
+if (isset($_SESSION['user'])) {
+  $posts = getPublicPosts($connection);
+}
+
+view('main/index', [
+  'posts' => $posts
+]);

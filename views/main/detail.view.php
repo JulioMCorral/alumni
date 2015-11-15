@@ -2,8 +2,8 @@
 	<h1><?= $alumni['name']; ?></h1>
 </header>
 
-<div class="container">
-	<main>
+<main>
+	<div class="container">
 		<p><?= $alumni['name']; ?>'s profile</p>
-	</main>
-</div>
+	</div>
+</main>

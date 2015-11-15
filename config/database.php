@@ -64,6 +64,22 @@ function registerUser($username, $fullName, $password, $conn) {
 	queryDatabase("INSERT INTO user (username, name, password) VALUES ('$username', '$fullName', '$password')", $conn);
 }
 
+function post($author, $message, $visible, $conn) {
+	queryDatabase("INSERT INTO post (author, message, visible) VALUES ('$author', '$message', '$visible')", $conn);
+}
+
+function getPosts($conn) {
+	return queryDatabase("SELECT * FROM post", $conn);
+}
+
+function getPublicPosts($conn) {
+	return queryDatabase("SELECT * FROM post WHERE visible='1' ORDER BY id DESC", $conn);
+}
+
+function getPrivatePosts($conn) {
+	return queryDatabase("SELECT * FROM post WHERE visible='0'", $conn);
+}
+
 function authenticateUser($username, $password, $conn) {
 	$user = queryDatabase("SELECT * FROM user WHERE username='$username'", $conn);
 

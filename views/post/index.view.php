@@ -12,7 +12,7 @@
 				<option value="0">Private</option>
 			</select>
 			<br><br>
-			<button type="submit" name="authForm">Make a Post</button>
+			<button type="submit" name="post">Make a Post</button>
 		</form>
 	</div>
 </main>

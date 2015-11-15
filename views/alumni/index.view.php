@@ -2,8 +2,8 @@
 	<h1>List of Alumni</h1>
 </header>
 
-<div class="container">
-	<main>
+<main>
+	<div class="container">
 		<ol>
 			<?php foreach($alumnis as $alumni) : ?>
 				<li>
@@ -13,5 +13,5 @@
 				</li>
 			<?php endforeach; ?>
 		</ol>
-	</main>
-</div>
+	</div>
+</main>

@@ -4,15 +4,18 @@ require 'config/initialize.php';
 
 mustBeAuthenticated();
 
-// if (isset($_POST['authForm'])) {
-// 	$username = sanitizeString($_POST['username'], $connection);
-// 	$password = sanitizeString($_POST['password'], $connection);
-//
-// 	if ($username == "" || $password == "") {
-// 		header("location: index.php");
-// 	} else {
-// 		authenticateUser($username, $password, $connection);
-// 	}
-// }
+if (isset($_POST['post'])) {
+  $message = sanitizeString($_POST['message'], $connection);
+  $visible = sanitizeString($_POST['visible'], $connection);
+
+  if ($message != "") {
+    $authorID = getByUsername($_SESSION['user'], $connection)->fetch_array(MYSQLI_ASSOC)[id];
+    post($authorID, $message, $visible, $connection);
+
+    header('Location: index.php');
+  } else {
+    header('Location: index.php');
+  }
+}
 
 view('post/index');
