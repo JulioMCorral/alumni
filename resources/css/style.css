@@ -1,7 +1,7 @@
 body {
 	color: #333;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 0.75rem;
+	font-size: 0.8rem;
 	font-weight: 400;
 }
 
@@ -85,8 +85,12 @@ nav p {
 	color: #fff;
 }
 
-nav a:hover {
+nav a {
 	color: #fff;
+}
+
+nav a:hover {
+	color: #e3e3e3;
 	text-decoration: underline;
 }
 

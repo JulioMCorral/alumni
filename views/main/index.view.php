@@ -1,7 +1,7 @@
 <?php if (isset($_SESSION['user'])) : ?>
 
 <header>
-	<h1>Home Page</h1>
+	<h1>News Feed</h1>
 </header>
 
 <main>
