@@ -22,13 +22,6 @@ function connect($config) {
 	return $conn;
 }
 
-function sanitizeString($var, $conn) {
-	$var = strip_tags($var);
-	$var = htmlentities($var);
-	$var = stripslashes($var);
-	return $conn->real_escape_string($var);
-}
-
 function queryDatabase($query, $conn) {
 	$result = $conn->query($query);
 

@@ -10,6 +10,13 @@ function view($path, $data = null) {
 	include "views/layout.php";
 }
 
+function sanitizeString($var, $conn) {
+	$var = strip_tags($var);
+	$var = htmlentities($var);
+	$var = stripslashes($var);
+	return $conn->real_escape_string($var);
+}
+
 function destroySession() {
 	$_SESSION=array();
 
