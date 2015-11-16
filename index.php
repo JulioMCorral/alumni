@@ -3,9 +3,13 @@
 require 'config/initialize.php';
 
 if (isset($_SESSION['user'])) {
-  $posts = getPublicPosts($connection);
+  $publicPosts = getPublicPosts($connection);
+  $postsForFollowers = getPostsForFollowers($connection);
+  $privatePosts = getPrivatePosts($connection);
 }
 
 view('main/index', [
-  'posts' => $posts
+  'publicPosts' => $publicPosts,
+  'postsForFollowers' => $postsForFollowers,
+  'privatePosts' => $privatePosts
 ]);

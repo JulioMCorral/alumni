@@ -6,11 +6,27 @@
 
 <main>
 	<div class="container">
-			<ul>
-				<?php foreach($posts as $post) : ?>
-					<li><?= $post['message']; ?></li>
-				<?php endforeach; ?>
-			</ul>
+		<h1>Public Posts</h1>
+
+		<ul>
+			<?php foreach($publicPosts as $post) : ?>
+				<li><?= $post['message']; ?></li>
+				<p><em>- by <?= $post['author']; ?></em></p>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+</main>
+
+<main>
+	<div class="container">
+		<h1>Posts For Followers</h1>
+
+		<ul>
+			<?php foreach($postsForFollowers as $post) : ?>
+				<li><?= $post['message']; ?></li>
+				<p><em>- by <?= $post['author']; ?></em></p>
+			<?php endforeach; ?>
+		</ul>
 	</div>
 </main>
 

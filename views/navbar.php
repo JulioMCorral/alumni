@@ -21,4 +21,5 @@
 		<li><a href="authenticate.php">Sign In</a></li>
 	</ul>
 </nav>
+
 <?php endif; ?>

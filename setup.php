@@ -15,4 +15,9 @@ createTable('post',
             message VARCHAR(140) NOT NULL,
             visible TINYINT(1) NOT NULL',
             $connection);
+
+createTable('following',
+            'follower INT(10),
+            follows INT(10)',
+            $connection);
 ?>

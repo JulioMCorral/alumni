@@ -1,5 +1,5 @@
 <header>
-	<h1>Posting</h1>
+	<h1>Express Yourself</h1>
 </header>
 
 <main>
@@ -8,7 +8,8 @@
 			<input type="text" name="message" placeholder="Message">
 			<br>
 			<select name="visible">
-				<option value="1">Public</option>
+				<option value="2">Public</option>
+				<option value="1">Followers</option>
 				<option value="0">Private</option>
 			</select>
 			<br><br>

@@ -57,7 +57,7 @@ button {
 	width: 960px;
 	margin: 0 auto;
 	flex-direction: column;
-	padding: 2rem;
+	padding: 0 2rem;
 }
 
 /* Navigation Bar */
@@ -116,7 +116,8 @@ main {
 	display: flex;
 	width: 100%;
 	margin: 0;
-	padding: 3rem 0;
+	padding: 0;
+	padding-top: 3rem;
 }
 
 /* Footer */

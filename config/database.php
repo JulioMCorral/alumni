@@ -56,13 +56,7 @@ function getLastId($conn) {
 	}
 }
 
-function getByUsername($username, $conn) {
-	return queryDatabase("SELECT * FROM user WHERE username='$username'", $conn);
-}
-
-function registerUser($username, $fullName, $password, $conn) {
-	queryDatabase("INSERT INTO user (username, name, password) VALUES ('$username', '$fullName', '$password')", $conn);
-}
+// Posts
 
 function post($author, $message, $visible, $conn) {
 	queryDatabase("INSERT INTO post (author, message, visible) VALUES ('$author', '$message', '$visible')", $conn);
@@ -73,11 +67,34 @@ function getPosts($conn) {
 }
 
 function getPublicPosts($conn) {
+	return queryDatabase("SELECT * FROM post WHERE visible='2' ORDER BY id DESC", $conn);
+}
+
+function getPostsForFollowers($conn) {
 	return queryDatabase("SELECT * FROM post WHERE visible='1' ORDER BY id DESC", $conn);
 }
 
 function getPrivatePosts($conn) {
 	return queryDatabase("SELECT * FROM post WHERE visible='0'", $conn);
+}
+
+function getUserPosts($userID, $conn) {
+	return queryDatabase("SELECT * FROM post WHERE author='$userID'", $conn);
+}
+
+function getSharedPosts($userID, $conn) {
+	// return queryDatabase("SELECT * FROM post WHERE author='$userID' AND visible='1' ORDER BY id DESC", $conn);
+	return queryDatabase("SELECT * FROM post WHERE author='$userID' AND visible BETWEEN '1' AND '2' ORDER BY id DESC", $conn);
+}
+
+// Other
+
+function getByUsername($username, $conn) {
+	return queryDatabase("SELECT * FROM user WHERE username='$username'", $conn);
+}
+
+function registerUser($username, $fullName, $password, $conn) {
+	queryDatabase("INSERT INTO user (username, name, password) VALUES ('$username', '$fullName', '$password')", $conn);
 }
 
 function authenticateUser($username, $password, $conn) {
