@@ -10,20 +10,6 @@ function view($path, $data = null) {
 	include "views/layout.php";
 }
 
-function mustBeGuest() {
-	if (isset($_SESSION['user'])) {
-		header('Location: index.php');
-		die();
-	}
-}
-
-function mustBeAuthenticated() {
-	if (!isset($_SESSION['user'])) {
-		header('Location: index.php');
-		die();
-	}
-}
-
 function destroySession() {
 	$_SESSION=array();
 
