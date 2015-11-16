@@ -19,7 +19,7 @@
 <?php elseif ($_SESSION['user'] != $user['username'] && $pendingStatus['approved'] == 2) : ?>
 
 <header>
-	<h1><?= $user['name']; ?> - pending</h1>
+	<h1><?= $user['name']; ?> - Pending <a href="unfollow.php?unfollow=<?= $user['id']; ?>&username=<?= $user['username']; ?>">(Cancel)</a></h1>
 </header>
 
 <main>
@@ -37,7 +37,7 @@
 <?php elseif ($_SESSION['user'] != $user['username'] && $pendingStatus['approved'] == 1) : ?>
 
 <header>
-	<h1><?= $user['name']; ?> - unfollow</h1>
+	<h1><?= $user['name']; ?> - <a href="unfollow.php?unfollow=<?= $user['id']; ?>&username=<?= $user['username']; ?>">unfollow</a></h1>
 </header>
 
 <main>

@@ -6,6 +6,12 @@ function follow($follower, $follows, $redirect, $conn) {
 	header("Location: profile.php?username=$redirect");
 }
 
+function unfollow($whomIsUnfollowing, $whomIsUnfollowed, $redirect, $conn) {
+	queryDatabase("DELETE FROM following WHERE follower='$whomIsUnfollowing' AND follows='$whomIsUnfollowed'", $conn);
+
+	header("Location: profile.php?username=$redirect");
+}
+
 function acceptRequest($whoIsAccepting, $whomIsAccepted, $conn) {
 	queryDatabase("UPDATE following SET approved='1' WHERE follows='$whoIsAccepting' AND follower='$whomIsAccepted'", $conn);
 }
