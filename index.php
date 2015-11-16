@@ -3,6 +3,7 @@
 require 'config/initialize.php';
 
 if (isset($_SESSION['user'])) {
+  $userInfo = getByUsername($_SESSION['user'], $connection)->fetch_array(MYSQLI_ASSOC);
   $publicPosts = getPublicPosts($connection);
   $pendingFollowers = getPendingFollowers($_SESSION['id'], $connection);
 
@@ -17,6 +18,7 @@ if (isset($_SESSION['user'])) {
 }
 
 view('main/index', [
+  'userInfo' => $userInfo,
   'publicPosts' => $publicPosts,
   'followersFollowersArray' => $followersFollowersArray
 ]);

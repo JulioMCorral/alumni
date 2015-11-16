@@ -2,8 +2,8 @@
 	<h1>Alumni</h1>
 </header>
 
-<main>
-	<div class="container">
+<div class="container">
+	<main>
 		<ol>
 			<?php foreach($users as $user) : ?>
 				<?php if($_SESSION['user'] == $user['username']) : continue ?>
@@ -15,5 +15,5 @@
 				</li>
 			<?php endforeach; ?>
 		</ol>
-	</div>
-</main>
+	</main>
+</div>

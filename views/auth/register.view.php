@@ -2,6 +2,7 @@
 	<h1>Create an Account</h1>
 </header>
 
+<div class="container">
 	<main>
 		<div class="centered">
 			<form method='post' action='register.php' autocomplete='off'>
@@ -15,3 +16,4 @@
 			</form>
 		</div>
 	</main>
+</div>
