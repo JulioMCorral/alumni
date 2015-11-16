@@ -5,11 +5,16 @@ body {
 	font-weight: 400;
 }
 
-h1 {
+h1, h3 {
 	font-size: 2rem;
 	font-weight: 200;
 	padding: 0;
 	margin: 0;
+}
+
+h3 {
+	font-size: 1.5rem;
+	padding-bottom: 2rem;
 }
 
 a {

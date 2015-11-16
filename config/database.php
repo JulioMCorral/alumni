@@ -70,24 +70,23 @@ function getPublicPosts($conn) {
 	return queryDatabase("SELECT * FROM post WHERE visible='2' ORDER BY id DESC", $conn);
 }
 
-function getPostsForFollowers($conn) {
-	return queryDatabase("SELECT * FROM post WHERE visible='1' ORDER BY id DESC", $conn);
-}
-
-function getPrivatePosts($conn) {
-	return queryDatabase("SELECT * FROM post WHERE visible='0'", $conn);
-}
-
 function getUserPosts($userID, $conn) {
-	return queryDatabase("SELECT * FROM post WHERE author='$userID'", $conn);
+	return queryDatabase("SELECT * FROM post WHERE author='$userID' ORDER BY id DESC", $conn);
 }
 
-function getSharedPosts($userID, $conn) {
-	// return queryDatabase("SELECT * FROM post WHERE author='$userID' AND visible='1' ORDER BY id DESC", $conn);
-	return queryDatabase("SELECT * FROM post WHERE author='$userID' AND visible BETWEEN '1' AND '2' ORDER BY id DESC", $conn);
+function getUserSpecificPosts($userID, $option, $conn) {
+	return queryDatabase("SELECT * FROM post WHERE author='$userID' AND visible='$option' ORDER BY id DESC", $conn);
+}
+
+function getUserPostsRange($userID, $from, $to, $conn) {
+	return queryDatabase("SELECT * FROM post WHERE author='$userID' AND visible BETWEEN '$from' AND '$to' ORDER BY id DESC", $conn);
 }
 
 // Other
+
+function getByID($id, $conn) {
+	return queryDatabase("SELECT id, username, name FROM user WHERE id='$id'", $conn);
+}
 
 function getByUsername($username, $conn) {
 	return queryDatabase("SELECT * FROM user WHERE username='$username'", $conn);
@@ -108,10 +107,33 @@ function authenticateUser($username, $password, $conn) {
 		$password = RANDOMSTR . "$id$password";
 
 		if (password_verify($password, $user['password'])) {
+			$_SESSION['id'] = $id;
 			$_SESSION['user'] = $username;
 			header('Location: index.php');
 		} else {
 			echo "Not going to happen!";
 		}
 	}
+}
+
+function follow($follower, $follows, $redirect, $conn) {
+	queryDatabase("INSERT INTO following (follower, follows, approved) VALUES ('$follower', '$follows', '2')", $conn);
+
+	header("Location: profile.php?username=$redirect");
+}
+
+function acceptRequest($whoIsAccepting, $whomIsAccepted, $conn) {
+	queryDatabase("UPDATE following SET approved='1' WHERE follows='$whoIsAccepting' AND follower='$whomIsAccepted'", $conn);
+}
+
+function denyRequest($whoIsAccepting, $whomIsAccepted, $conn) {
+	queryDatabase("UPDATE following SET approved='0' WHERE follows='$whoIsAccepting' AND follower='$whomIsAccepted'", $conn);
+}
+
+function isPending($userID, $relation, $conn) {
+	return queryDatabase("SELECT * FROM following WHERE follower='$userID' AND follows='$relation'", $conn);
+}
+
+function getPendingFollowers($userID, $conn) {
+	return queryDatabase("SELECT * FROM following WHERE follows='$userID' AND approved='2'", $conn);
 }

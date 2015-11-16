@@ -17,7 +17,8 @@ createTable('post',
             $connection);
 
 createTable('following',
-            'follower INT(10),
-            follows INT(10)',
+            'follower INT(10) NOT NULL,
+            follows INT(10) NOT NULL,
+            approved TINYINT(1) NOT NULL',
             $connection);
 ?>

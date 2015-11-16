@@ -1,4 +1,4 @@
-<?php if (isset($_SESSION['user'])) : ?>
+<?php if ($_SESSION['user']) : ?>
 
 <header>
 	<h1><a href="post.php">Post</a> Something</h1>
@@ -6,12 +6,11 @@
 
 <main>
 	<div class="container">
-		<h1>Public Posts</h1>
+		<h3>Public Posts</h3>
 
 		<ul>
 			<?php foreach($publicPosts as $post) : ?>
 				<li><?= $post['message']; ?></li>
-				<p><em>- by <?= $post['author']; ?></em></p>
 			<?php endforeach; ?>
 		</ul>
 	</div>
@@ -19,12 +18,12 @@
 
 <main>
 	<div class="container">
-		<h1>Posts For Followers</h1>
-
 		<ul>
-			<?php foreach($postsForFollowers as $post) : ?>
-				<li><?= $post['message']; ?></li>
-				<p><em>- by <?= $post['author']; ?></em></p>
+			<?php foreach($followersFollowersArray as $pendingFollower) : ?>
+				<li>
+					<a href="profile.php?username=<?= $pendingFollower['username']; ?>"><?= $pendingFollower['name']; ?></a> wants to follow you,
+					you can either <a href="accept.php?pendingID=<?= $pendingFollower['id']; ?>">accept</a> or <a href="deny.php?pendingID=<?= $pendingFollower['id']; ?>">deny</a> the request.
+				</li>
 			<?php endforeach; ?>
 		</ul>
 	</div>

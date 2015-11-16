@@ -4,18 +4,20 @@ require 'config/initialize.php';
 
 mustBeAuthenticated();
 
-$alumni = getByUsername($_GET['username'], $connection);
+$user = getByUsername($_GET['username'], $connection);
 
-if ($alumni->num_rows) {
-	$alumni = $alumni->fetch_array(MYSQLI_ASSOC);
+if ($user->num_rows) {
+	$user = $user->fetch_array(MYSQLI_ASSOC);
+	$posts = getUserPosts($user['id'], $connection);
+	$publicPosts = getUserSpecificPosts($user['id'], 2, $connection);
 
-	$userPosts = getUserPosts($alumni['id'], $connection);
-	$sharedPosts = getSharedPosts($alumni['id'], $connection);
+	$pendingStatus = isPending($_SESSION['id'], $user['id'], $connection)->fetch_array(MYSQLI_ASSOC);
 
 	view('main/detail', [
-		'alumni' => $alumni,
-		'userPosts' => $userPosts,
-		'sharedPosts' => $sharedPosts
+		'user' => $user,
+		'posts' => $posts,
+		'publicPosts' => $publicPosts,
+		'pendingStatus' => $pendingStatus
 	]);
 } else {
 	header('location:/');
