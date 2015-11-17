@@ -49,6 +49,10 @@ function getLastId($conn) {
 	}
 }
 
+function getUsers($conn) {
+	return queryDatabase("SELECT id, username, name FROM user", $conn);
+}
+
 function getByID($id, $conn) {
 	return queryDatabase("SELECT id, username, name FROM user WHERE id='$id'", $conn);
 }

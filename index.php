@@ -4,7 +4,8 @@ require 'config/initialize.php';
 
 if (isset($_SESSION['user'])) {
   $userInfo = getByUsername($_SESSION['user'], $connection)->fetch_array(MYSQLI_ASSOC);
-  $publicPosts = getPublicPosts($connection);
+  $publicPosts = getPublicPostsWithAuthors($connection);
+
   $pendingFollowers = getPendingFollowers($_SESSION['id'], $connection);
 
   $followersFollowersArray = array();

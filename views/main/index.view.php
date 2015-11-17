@@ -6,7 +6,13 @@
 
 <div class="container">
 	<aside>
-		<h3><?php echo $userInfo['name'] ?></h3>
+		<div class="panel">
+			<h3><?php echo $userInfo['name'] ?></h3>
+
+			<?php foreach($users as $u) : ?>
+					<p><?= $u['id']; ?></p>
+			<?php endforeach; ?>
+		</div>
 
 		<ul>
 			<?php foreach($followersFollowersArray as $pendingFollower) : ?>
@@ -19,12 +25,10 @@
 	</aside>
 
 	<main>
-			<h3>News Feed</h3>
-
 			<?php foreach($publicPosts as $post) : ?>
 				<div class="media">
 					<div class="media__figure">
-						<?= $post['author']; ?>
+						<a href="profile.php?username=<?= $post['username']; ?>"><?= $post['name']; ?></a> posted:
 					</div>
 					<div class="media__body">
 						<?= $post['message']; ?>

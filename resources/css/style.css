@@ -145,11 +145,33 @@ main {
 
 /* Asside */
 
+aside p, h3 {
+	margin: 0;
+	padding: 0;
+}
+
 .container aside {
 	flex-basis: 250px;
 	margin: 0;
 	padding: 0;
 	margin-right: 2rem;
+}
+
+.container aside .panel {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	justify-content: center;
+	padding: 2rem;
+	margin-bottom: 0.5rem;
+	background: #fff;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.container aside p {
+	display: flex;
+	justify-content: center;
 }
 
 .container aside li {
